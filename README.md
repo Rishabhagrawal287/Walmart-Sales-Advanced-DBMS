@@ -4,6 +4,14 @@
 This project implements an end-to-end **SQL Server Data Warehouse** for analyzing Walmart sales data across 45 stores.  
 It follows **enterprise-grade data engineering practices**, including staging, ETL pipelines, dimensional modeling, fact tables, indexing, audit triggers, and performance optimization.
 
+**🛠 Technologies Used**
+- SQL Server
+- SQL Server Management Studio (SSMS)
+- T-SQL
+- BULK INSERT (ETL ingestion)
+- Indexing & Query Optimization
+- Dimensional Modeling (Fact & Dimension Tables)
+
 ---
 
 ## 🏗 System Architecture
@@ -25,19 +33,24 @@ CSV → Staging Table → Dimension Tables → Fact Table → Views & Analytics
 
 Walmart-Sales-DBMS/
 │
-├── 01_Schema/ # Core OLTP schema
-├── 02_Data_insertion/ # Sample transactional data
-├── 03_Views/ # Analytical views
-├── 04_Triggers_audit/ # Audit triggers
-├── 05_Procedures_udf/ # Stored procedures & UDFs
-├── 06_Cursor/ # Cursor example
-├── 07_Staging_ETL/ # Staging & ETL scripts
-├── 08_indexes_partitioning/ # Indexing + partition design
-├── Bulk_Inserting/ # BULK INSERT logic
-├── Dimension_table/ # Dim_Store
-├── Fact_Table/ # Fact_WeeklySales
-├── Indexes_Fact_Table/ # Fact table indexes
-├── walmart-sales-dataset-of-45stores.csv
+├── sql/
+    ├── 01_Schema/ # Core OLTP schema
+    ├── 02_Data_insertion/ # Sample transactional data
+    ├── 03_Views/ # Analytical views
+    ├── 04_Triggers_audit/ # Audit triggers
+    ├── 05_Procedures_udf/ # Stored procedures & UDFs
+    ├── 06_Cursor/ # Cursor example
+    ├── 07_Staging_ETL/ # Staging & ETL scripts
+    ├── 08_indexes_partitioning/ # Indexing + partition design
+    ├── Bulk_Inserting/ # BULK INSERT logic
+    ├── Dimension_table/ # Dim_Store
+    ├── Fact_Table/ # Fact_WeeklySales
+    ├── Indexes_Fact_Table/ # Fact table indexes
+├── docs/
+    ├── Walmart-Sales-Advanced-DBMS_README.pdf
+    ├── Walmart_Sales_System_Architecture.png
+├── datasets/
+    ├── walmart-sales-dataset-of-45stores.csv
 └── README.md
 
 
@@ -81,6 +94,15 @@ ETL scripts inside Fact_Table
 ### 1️⃣2️⃣ Create Indexes
 Indexes_Fact_Table/
 08_indexes_partitioning/
+
+**🧩 ER Diagram (Logical Description)**
+
+Products ───┐
+            ├── Sales ─── Transactions
+Customers ──┘
+Stores ─────┘
+
+Dim_Store ─── Fact_WeeklySales
 
 ## 🧪 Validation Queries
 ```sql
